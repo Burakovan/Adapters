@@ -26,6 +26,4 @@ jobs:
           python3 -m unittest discover -p "*_test.py"
       - name: Lint with Pylint
         run: |
-          cd ..
-          export PYTHONPATH=./programming-2022-20fpl
-          python3 -m pylint programming-2022-20fpl
+          python3 -m pylint $(git ls-files '*.py')
