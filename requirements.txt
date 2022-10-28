@@ -4,6 +4,3 @@ markdown~=3.4.1
 PyPDF2~=2.11.1
 openpyxl~=3.0.10
 pandas~=1.5.1
-codecs
-shutil
-os
