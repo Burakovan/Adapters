@@ -1,0 +1,31 @@
+name: Programming for Linguists CI 2022
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Test with unittest
+        run: |
+          python3 -m unittest discover -p "*_test.py"
+      - name: Lint with Pylint
+        run: |
+          cd ..
+          export PYTHONPATH=./programming-2022-20fpl
+          python3 -m pylint programming-2022-20fpl
