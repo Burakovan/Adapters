@@ -95,6 +95,7 @@ class Pdf:
                 page = pdfReader.getPage(page_number)
                 page_content = page.extractText()
                 print(page_content)
+
     def writing(self):
         """
         Converts .pdf files into .txt files and adds text in them
@@ -213,6 +214,7 @@ class Html:
         """
         Opens .html files and adds text
         """
+
         path_to_data = Path(self.path)
         for file in path_to_data.glob('*.html'):
             html_f = open(file, 'w')
